@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Moda Stüdyosu 2 — Hafta 6 | Trend Analizi &amp; Dijital Pazarlama</title>
+<style>
+    :root{
+      --bg:#f6f6f6;
+      --fg:#111;
+      --muted:#555;
+      --card:#ffffff;
+      --border:#111;
+      --accent:#00ff66;
+      --accent2:#ff2bd6;
+      --link:#111;
+      --shadow: 0 6px 0 var(--border);
+      --radius: 18px;
+      --maxw: 1040px;
+      --fs: 18px;
+      --lh: 1.55;
+      --pad: 18px;
+      --gap: 16px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      --heading-font: var(--serif);
+      --heading-weight: 800;
+      --body-weight: 450;
+      --page-pad: 22px;
+    }
+
+    /* Dark mode */
+    [data-theme="dark"]{
+      --bg:#0b0b0c;
+      --fg:#f2f2f2;
+      --muted:#b7b7b7;
+      --card:#111114;
+      --border:#f2f2f2;
+      --accent:#00ff66;
+      --accent2:#ff2bd6;
+      --link:#f2f2f2;
+      --shadow: 0 6px 0 var(--border);
+    }
+
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font-family:var(--mono);
+      font-size:var(--fs);
+      line-height:var(--lh);
+      font-weight: var(--body-weight);
+      letter-spacing: -0.01em;
+    }
+
+    a{ color: var(--link); }
+    a:hover{ text-decoration: none; background: var(--accent); color: #000; }
+    .wrap{
+      display:grid;
+      grid-template-columns: 320px 1fr 330px;
+      min-height:100vh;
+      gap: 0;
+    }
+
+    /* Left nav */
+    .nav{
+      position: sticky;
+      top:0;
+      height:100vh;
+      border-right: 2px solid var(--border);
+      padding: 18px 16px;
+      box-sizing: border-box;
+      overflow:auto;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 100%);
+    }
+    .brand{
+      border: 2px solid var(--border);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 14px 14px;
+      margin-bottom: 14px;
+    }
+    .brand .kicker{
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+    .brand h1{
+      margin: 8px 0 6px 0;
+      font-family: var(--heading-font);
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 1.1;
+    }
+    .brand .sub{
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .nav .actions{
+      display:flex;
+      gap: 10px;
+      margin: 10px 0 14px;
+    }
+    .btn{
+      cursor:pointer;
+      border: 2px solid var(--border);
+      background: var(--card);
+      padding: 10px 12px;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      font-family: var(--mono);
+      font-size: 13px;
+      user-select:none;
+    }
+    .btn:active{ transform: translateY(3px); box-shadow: 0 3px 0 var(--border); }
+
+    .toc{
+      display:flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style:none;
+    }
+    .toc a{
+      display:block;
+      text-decoration:none;
+      border: 2px solid var(--border);
+      background: var(--card);
+      border-radius: 14px;
+      padding: 10px 12px;
+      box-shadow: var(--shadow);
+      font-size: 13px;
+    }
+    .toc a small{
+      display:block;
+      color: var(--muted);
+      margin-top: 4px;
+      font-size: 11px;
+      letter-spacing: .02em;
+    }
+    .toc a.active{
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* Main */
+    main{ padding: var(--page-pad) var(--page-pad) 120px;
+      border-right: 2px solid var(--border);
+      box-sizing:border-box;
+    }
+    .container{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      display:flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    section{
+      border: 2px solid var(--border);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: calc(var(--pad) + 2px);
+      scroll-margin-top: 14px;
+    }
+    .kicker{
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .14em;
+    }
+    h2{
+      margin: 10px 0 10px 0;
+      font-family: var(--heading-font);
+      font-size: 30px;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+    h3{
+      margin: 16px 0 8px 0;
+      font-family: var(--heading-font);
+      font-weight: var(--heading-weight);
+      font-size: 22px;
+      line-height: 1.15;
+    }
+    p{ margin: 10px 0; }
+    .lead{ font-size: 19px; }
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap);
+      margin-top: 14px;
+    }
+    .card{
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+      background: rgba(0,0,0,0);
+    }
+    .card strong{ font-family: var(--heading-font); font-size: 18px; }
+    .pill{
+      display:inline-block;
+      padding: 4px 10px;
+      border: 2px solid var(--border);
+      border-radius: 999px;
+      font-size: 12px;
+      margin-right: 6px;
+      background: var(--bg);
+    }
+    .note{
+      border-left: 6px solid var(--accent2);
+      padding: 10px 12px;
+      background: rgba(255,43,214,0.08);
+      border-radius: 12px;
+      margin: 10px 0;
+      font-size: 14px;
+      color: var(--fg);
+    }
+    .do{
+      border-left: 6px solid var(--accent);
+      padding: 10px 12px;
+      background: rgba(0,255,102,0.08);
+      border-radius: 12px;
+      margin: 12px 0 6px;
+    }
+
+    .steps{
+      margin: 10px 0 0;
+      padding-left: 18px;
+    }
+    .steps li{ margin: 6px 0; }
+
+    .table{
+      width:100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .table th, .table td{
+      border: 2px solid var(--border);
+      padding: 10px 10px;
+      vertical-align: top;
+    }
+    .table th{
+      font-family: var(--heading-font);
+      font-size: 14px;
+      background: rgba(0,0,0,0.04);
+    }
+    [data-theme="dark"] .table th{
+      background: rgba(255,255,255,0.06);
+    }
+
+    .kbd{
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 2px 8px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      background: var(--bg);
+    }
+
+    /* Right settings */
+    aside{
+      position: sticky;
+      top:0;
+      height:100vh;
+      overflow:auto;
+      padding: 18px 16px;
+      box-sizing:border-box;
+    }
+    .panel{
+      border: 2px solid var(--border);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+    .panel h4{
+      margin: 0 0 10px 0;
+      font-family: var(--heading-font);
+      font-size: 18px;
+    }
+    .row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 10px 0;
+      align-items:center;
+    }
+    label{
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+    input[type="color"], input[type="range"], select{
+      width: 100%;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      background: var(--bg);
+      height: 40px;
+      padding: 6px 10px;
+      box-sizing:border-box;
+      color: var(--fg);
+      font-family: var(--mono);
+    }
+    input[type="range"]{ padding: 0 6px; }
+    .small{ font-size: 12px; color: var(--muted); }
+
+    .footerbar{
+      position: fixed;
+      left: 320px;
+      right: 330px;
+      bottom: 0;
+      border-top: 2px solid var(--border);
+      background: var(--card);
+      padding: 10px 12px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+      z-index: 50;
+    }
+    .progress{
+      flex: 1;
+      height: 10px;
+      border: 2px solid var(--border);
+      border-radius: 999px;
+      overflow:hidden;
+      background: var(--bg);
+    }
+    .progress > div{
+      height:100%;
+      width:0%;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    }
+    .footerbar .hint{ font-size: 12px; color: var(--muted); }
+
+    /* Presenter mode */
+    .presenterBadge{
+      display:none;
+      position: fixed;
+      top: 10px;
+      left: 330px;
+      z-index: 60;
+      border: 2px solid var(--border);
+      background: var(--accent);
+      color: #000;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      box-shadow: var(--shadow);
+    }
+    body[data-presenter="1"] .presenterBadge{ display:block; }
+    .presenterOnly{ display:none; }
+    body[data-presenter="1"] .presenterOnly{ display:block; }
+    .presenterNote{
+      border: 2px dashed var(--border);
+      border-radius: 14px;
+      padding: 10px 12px;
+      background: rgba(0,0,0,0.04);
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    [data-theme="dark"] .presenterNote{ background: rgba(255,255,255,0.06); }
+
+    /* Responsive */
+    @media (max-width: 1180px){
+      .wrap{ grid-template-columns: 300px 1fr; }
+      aside{ display:none; }
+      main{ border-right: none; }
+      .footerbar{ right: 0; }
+      .presenterBadge{ left: 310px; }
+    }
+    @media (max-width: 860px){
+      .wrap{ grid-template-columns: 1fr; }
+      .nav{ position: relative; height: auto; border-right:none; border-bottom:2px solid var(--border); }
+      .footerbar{ left: 0; }
+      .presenterBadge{ left: 10px; }
+      .grid{ grid-template-columns: 1fr; }
+    }
+  
+    .viz{
+      border:1px solid var(--border);
+      background:var(--panel2);
+      padding:12px;
+      margin:12px 0 14px;
+    }
+    .viz svg{ width:100%; height:auto; display:block; }
+    .viz .cap{ margin-top:8px; font-size: 13px; color: var(--muted); }
+
+    select{
+      width: 100%;
+      background: var(--panel);
+      color: var(--ink);
+      border: 1px solid var(--border);
+      padding: 10px 10px;
+      border-radius: 10px;
+      font-family: var(--mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+</style>
+</head>
+<body>
+<div class="presenterBadge">Presenter mode ON</div>
+<div class="wrap">
+<nav class="nav">
+<div class="brand">
+<div class="kicker">MODA STÜDYOSU 2 • HAFTA 6</div>
+<h1>Trend Analizi, Dijital Moda Pazarlaması &amp; Portfolyo</h1>
+<div class="sub">6 saat / interaktif + Figma uygulamalı • <span class="kbd">←</span> <span class="kbd">→</span> ile gez • <span class="kbd">P</span> = presenter mode</div>
+</div>
+<div class="actions">
+<div class="btn" id="btnPrev">← Prev</div>
+<div class="btn" id="btnNext">Next →</div>
+</div>
+<ul class="toc" id="toc"><li><a href="#s0"><div class="n">00</div><div class="t">Açılış / Hedef</div><div class="s">Bugün ne üretiyoruz?</div></a></li><li><a href="#s1"><div class="n">01</div><div class="t">Trend okuma mantığı</div><div class="s">Sinyal → kalıp → karar</div></a></li><li><a href="#s2"><div class="n">02</div><div class="t">Scouting kaynakları</div><div class="s">Runway, sokak, kültür, veri</div></a></li><li><a href="#s3"><div class="n">03</div><div class="t">Runway analiz çerçevesi</div><div class="s">Silüet / renk / materyal / styling</div></a></li><li><a href="#s4"><div class="n">04</div><div class="t">Koleksiyona çeviri</div><div class="s">Assortment + fiyat + varyant</div></a></li><li><a href="#s5"><div class="n">05</div><div class="t">Dijital pazarlama hunisi</div><div class="s">Acquisition → conversion → retention</div></a></li><li><a href="#s6"><div class="n">06</div><div class="t">Kanal ve format stratejisi</div><div class="s">Platforma göre mesaj + üretim planı</div></a></li><li><a href="#s7"><div class="n">07</div><div class="t">Portfolyo sayfası kurgusu</div><div class="s">Case study: problem → çözüm → sonuç</div></a></li><li><a href="#s8"><div class="n">08</div><div class="t">Atölye + ödev</div><div class="s">Şablonlar, teslimler, checklist</div></a></li><li><a href="#refs"><div class="n">09</div><div class="t">Kaynaklar</div><div class="s">Okuma listesi + araçlar</div></a></li></ul>
+<div class="panel presenterOnly" style="margin-top:14px;">
+<h4>Presenter quick notes</h4>
+<div class="small">Bu kutu sadece <span class="kbd">P</span> açıkken görünür. Öğrenciye gösterirken kapalı kalsın.</div>
+</div>
+</nav>
+<main>
+<div class="container"><section class="section hero" id="s0">
+<div class="heroBlock">
+<div>
+<div class="kicker">▢ MODA STÜDYOSU 2 · HAFTA 06</div>
+<h1 class="heroTitle">İleri Trend Analizi, Dijital Moda Pazarlaması<br/>ve Portfolyo Kurgusu</h1>
+<p class="heroSub">
+      Bugün “ilham”ı sistemleştiriyoruz: trendleri veri + gözlem + kültür üçgeninde okuyup,
+      bunu koleksiyon kararlarına ve dijital pazarlama stratejisine bağlayacağız.
+      Günün sonunda elinizde: <b>trend haritası</b>, <b>runway analiz şablonu</b>, <b>içerik hunisi</b> ve <b>portfolyo iskeleti</b> olacak.
+      Tasarım geçmişi şart değil — net bir yöntem şart.
+    </p>
+<div class="heroMeta">
+<span class="chip">10:00–13:00 Sabah Modülü</span>
+<span class="chip">13:00–14:00 Öğle Arası</span>
+<span class="chip">14:00–17:00 Öğleden Sonra Modülü</span>
+<span class="chip">Uygulama + Şablon + Ödev</span>
+</div>
+</div>
+</div>
+</section><section class="section" id="s1">
+<div class="secHead">
+<span class="secNo">01</span>
+<h2>Trend dediğimiz şey: makro ↔ mikro</h2>
+</div>
+<div class="grid2">
+<div class="card">
+<div class="cardTitle">KISA TANIM</div>
+<ul>
+<li><b>Makro trend:</b> 2–10 yıllık büyük yön değişimi (toplum, teknoloji, ekonomi, iklim, değerler).</li>
+<li><b>Mikro trend:</b> 3–18 ay arası görünürleşen, “ürüne/estetiğe” dönüşebilen dalga (silüet, renk, detay, format).</li>
+<li><b>Moda için kritik nokta:</b> mikro trendin “satılabilir” olması yetmez; markanın stratejisi ve tedarikiyle uyumlu olmalı.</li>
+</ul>
+<div class="miniNote">İpucu: Makro trend “neden şimdi?” sorusunu; mikro trend “ne yapacağız?” sorusunu cevaplar.</div>
+</div>
+<div class="card">
+<div class="cardTitle">TREND ≠ VİRAL</div>
+<ul>
+<li><b>Viral:</b> hızlı yayılır, hızlı sönebilir.</li>
+<li><b>Trend:</b> tekrar eder, farklı kaynaklarda görünür, davranışa/ürüne yansır.</li>
+<li><b>Bizim ölçütümüz:</b> En az 3 farklı yerde aynı “sinyal” + pazarda mantıklı bir ürün karşılığı.</li>
+</ul>
+<div class="miniCheck">
+        Mini-check: Bir şey “çok paylaşılıyor” diye koleksiyon kararı alınır mı?
+        Alınacaksa hangi riski yönetmeniz gerekir (stok, beden, maliyet, marka algısı)?
+      </div>
+</div>
+</div>
+</section><section class="section" id="s2">
+<div class="secHead">
+<span class="secNo">02</span>
+<h2>Trend okuma metodolojisi: Triangulation</h2>
+</div>
+<div class="card">
+<div class="cardTitle">3 KAYNAKLI OKUMA</div>
+<div class="grid3">
+<div class="card">
+<div class="cardTitle">Kültür / Bağlam</div>
+<ul>
+<li>Film, müzik, oyun, meme kültürü</li>
+<li>Ekonomik iklim, yaşam tarzı</li>
+<li>Değerler: sürdürülebilirlik, kimlik, güvenlik</li>
+</ul>
+</div>
+<div class="card">
+<div class="cardTitle">Pazar / Veri</div>
+<ul>
+<li>Google Trends / arama niyeti</li>
+<li>TikTok Creative Center / trend intelligence</li>
+<li>Satış sinyalleri: fiyat bantları, “dupe” ekonomisi</li>
+</ul>
+</div>
+<div class="card">
+<div class="cardTitle">Ürün / Estetik</div>
+<ul>
+<li>Runway + lookbook analizi</li>
+<li>Street style + creator styling</li>
+<li>Malzeme, renk, silüet, detay</li>
+</ul>
+</div>
+</div>
+<div class="miniNote">Kural: Tek kaynaktan trend olmaz. “Aynı sinyali” en az 3 farklı yerden doğrulayın.</div>
+</div>
+<div class="grid2">
+<div class="card">
+<div class="cardTitle">HIZLI ŞABLON: TREND KARTI</div>
+<ol>
+<li><b>Trend adı</b> (2–3 kelime)</li>
+<li><b>Sinyal kanıtı</b> (3 kaynak + link/screenshot)</li>
+<li><b>Hangi ihtiyaç/duygu</b> (konfor, statü, kaçış, koruma, oyun vb.)</li>
+<li><b>Ürün karşılığı</b> (1 hero ürün + 2 destek ürün)</li>
+<li><b>Risk &amp; bariyer</b> (stok, fiyat, üretim, beden/fit)</li>
+<li><b>Marka uyumu</b> (DNA ile çelişiyor mu?)</li>
+</ol>
+</div>
+<div class="card">
+<div class="cardTitle">ÖRNEK TREND (MODA-DIŞI OKUMA)</div>
+<p>
+<b>“Quiet Utility”</b> (örnek): Sessiz ama işlevsel parça arayışı.
+        Kültür: minimal yaşam + belirsizlikte “güvenli” seçimler.
+        Veri: “capsule wardrobe”, “utility jacket” aramaları.
+        Ürün: sağlam kumaş, çok cepli parçalar, nötr palet.
+      </p>
+<div class="miniNote">Bu örnek “doğru trend” değil; metodun nasıl çalıştığını göstermek için.</div>
+</div>
+</div>
+</section><section class="section" id="s3">
+<div class="secHead">
+<span class="secNo">03</span>
+<h2>Runway analizi: “güzel”i stratejiye çevirmek</h2>
+</div>
+<div class="grid2">
+<div class="card">
+<div class="cardTitle">RUNWAY ANALİZİ — SORU SETİ</div>
+<ul>
+<li><b>Marka stratejisi:</b> Bu koleksiyon hangi “hikâyeyi” satıyor?</li>
+<li><b>Hedef müşteri:</b> Kim giyer? Hangi yaşam anı? (iş, gece, tatil, event)</li>
+<li><b>Fiyat &amp; erişim:</b> Lüks mü? Premium mu? “Dupe” alanı var mı?</li>
+<li><b>Hero ürün:</b> PR + satış için “ana kahraman” ne?</li>
+<li><b>Tekrarlanan motif:</b> En az 3 kez gördüğünüz detay ne?</li>
+<li><b>Malzeme/üretim:</b> Gerçekçi mi? Üretilebilir mi? Alternatifleri?</li>
+</ul>
+</div>
+<div class="card">
+<div class="cardTitle">RUNWAY ANALİZİ — ÇIKTI</div>
+<ol>
+<li><b>5 cümlelik özet</b> (koleksiyonun “tezi”)</li>
+<li><b>Renk/malzeme matrisi</b> (3 ana, 3 destek)</li>
+<li><b>Silüet listesi</b> (toplam 5)</li>
+<li><b>Detay kütüphanesi</b> (dikiş, kapama, aksesuar, yüzey)</li>
+<li><b>Ürün haritası</b>: hero + ticari + imaj parçaları</li>
+</ol>
+<div class="miniNote">Runway analizi “kopya çekmek” değil: stratejiyi okumaktır.</div>
+</div>
+</div>
+</section><section class="section" id="s4">
+<div class="secHead">
+<span class="secNo">04</span>
+<h2>Koleksiyona bağlama: ürün kararları</h2>
+</div>
+<div class="card">
+<div class="cardTitle">TREND → ÜRÜN ÇEVİRİCİ (PRACTICAL)</div>
+<div class="grid3">
+<div class="card">
+<div class="cardTitle">1) Dna</div>
+<ul>
+<li>Marka tonu (minimal / maksimal / romantik / sert)</li>
+<li>Fiyat bandı</li>
+<li>Üretim kabiliyeti (kumaş, dikiş, termin)</li>
+</ul>
+</div>
+<div class="card">
+<div class="cardTitle">2) Ürün Portföyü</div>
+<ul>
+<li>Hero ürün (1)</li>
+<li>Core ürünler (3)</li>
+<li>Giriş seviyesi ürün (1)</li>
+</ul>
+</div>
+<div class="card">
+<div class="cardTitle">3) Risk Yönetimi</div>
+<ul>
+<li>Stok/beden riski</li>
+<li>Alternatif malzeme</li>
+<li>Test: küçük drop / pre-order / limited</li>
+</ul>
+</div>
+</div>
+<div class="miniCheck">
+      Mini-check: Trendin “görsel” kısmı mı önemli, yoksa “fonksiyon/duygu” kısmı mı?
+      Bunu ayırabilirseniz markanız trendi “kendi diline” çevirir.
+    </div>
+</div>
+</section><section class="section" id="s5">
+<div class="secHead">
+<span class="secNo">05</span>
+<h2>Dijital moda pazarlaması: huniler + growth loops</h2>
+</div>
+<div class="grid2">
+<div class="card">
+<div class="cardTitle">HUNİ MANTIĞI (BASİT)</div>
+<ol>
+<li><b>Keşif (Awareness):</b> içerik → dikkat</li>
+<li><b>Değerlendirme (Consideration):</b> ürün/marka kanıtı → güven</li>
+<li><b>Dönüşüm (Conversion):</b> checkout → satın alma</li>
+<li><b>Sadakat (Retention):</b> tekrar → topluluk</li>
+</ol>
+<div class="miniNote">Moda: “kanıt” ihtiyacı yüksektir (beden/fit, doku, kalite, güven).</div>
+</div>
+<div class="card">
+<div class="cardTitle">GROWTH LOOP (HIZLI)</div>
+<ul>
+<li><b>İçerik</b> (IG/TikTok) → <b>Site</b> (ürün) → <b>Satın alma</b></li>
+<li>Satın alan → <b>UGC</b> (review, foto) → tekrar içerik</li>
+<li>UGC → keşif → yeni trafik</li>
+</ul>
+<div class="miniCheck">Mini-check: Şu an markanız “huni” mi çalıştırıyor yoksa sadece “paylaşıp umuyor” mu?</div>
+</div>
+</div>
+<div class="card">
+<div class="cardTitle">KPI ÖRNEKLERİ (FONKSİYONA GÖRE)</div>
+<div class="grid3">
+<div class="card">
+<div class="cardTitle">Keşif</div>
+<ul><li>Reach / Views</li><li>Profil ziyaret</li><li>Takip dönüşüm</li></ul>
+</div>
+<div class="card">
+<div class="cardTitle">Değerlendirme</div>
+<ul><li>Site tıklaması</li><li>Kaydetme / paylaşım</li><li>Sepete ekleme</li></ul>
+</div>
+<div class="card">
+<div class="cardTitle">Dönüşüm + Sadakat</div>
+<ul><li>Satın alma</li><li>İade oranı</li><li>Tekrar sipariş</li></ul>
+</div>
+</div>
+</div>
+</section><section class="section" id="s6">
+<div class="secHead">
+<span class="secNo">06</span>
+<h2>Kanal pratikleri: IG / TikTok / Web</h2>
+</div>
+<div class="grid3">
+<div class="card">
+<div class="cardTitle">Instagram</div>
+<ul>
+<li>Reels: keşif motoru</li>
+<li>Story: ilişki + güven</li>
+<li>Highlight: “mini site”</li>
+<li>DM: satış / müşteri hizmeti</li>
+</ul>
+</div>
+<div class="card">
+<div class="cardTitle">TikTok</div>
+<ul>
+<li>Trend intelligence (Creative Center)</li>
+<li>Creator-first anlatım</li>
+<li>Format: “problem → çözüm → ürün”</li>
+<li>Hızlı test, hızlı iterasyon</li>
+</ul>
+</div>
+<div class="card">
+<div class="cardTitle">Web / Store</div>
+<ul>
+<li>Trust signals: iade, kargo, ödeme</li>
+<li>Ürün sayfası: görsel + ölçü + içerik</li>
+<li>Checkout: sürtünmeyi azalt</li>
+<li>Analitik: karar mekanizması</li>
+</ul>
+</div>
+</div>
+<div class="miniNote">
+    Kural: Sosyal medya “trafik üretir”; web “dönüştürür”.
+    Web zayıfsa, sosyal medya ne kadar iyi olursa olsun satış kaçar.
+  </div>
+</section><section class="section" id="s7">
+<div class="secHead">
+<span class="secNo">07</span>
+<h2>Portfolyo kurgusu: hikâye, kanıt, sonuç</h2>
+</div>
+<div class="grid2">
+<div class="card">
+<div class="cardTitle">PORTFOLYO = “PROBLEM ÇÖZME KANITI”</div>
+<ul>
+<li><b>Hikâye:</b> Neyi çözmek istedin? Neden bu konsept?</li>
+<li><b>Süreç:</b> Araştırma → karar → deneme → iterasyon</li>
+<li><b>Kanıt:</b> şema, test, referans, ölçüm, feedback</li>
+<li><b>Sonuç:</b> final ürün + “ne öğrendim?”</li>
+</ul>
+<div class="miniNote">Portfolyo “güzel görsel” değil, karar kalitesi gösterir.</div>
+</div>
+<div class="card">
+<div class="cardTitle">10 SLAYTLIK İSKELET (ÖNERİ)</div>
+<ol>
+<li>Kapak (proje adı + 1 güçlü görsel)</li>
+<li>Brief &amp; hedef kitle</li>
+<li>Trend kartı (sinyaller)</li>
+<li>Konsept cümlesi + moodboard</li>
+<li>Silüet/ürün yönleri</li>
+<li>Renk + malzeme matrisi</li>
+<li>Hero look / hero product</li>
+<li>Line-up / ürün haritası</li>
+<li>Dijital lansman planı (funnel)</li>
+<li>Özet + next steps</li>
+</ol>
+</div>
+</div>
+</section><section class="section" id="s8">
+<div class="secHead">
+<span class="secNo">08</span>
+<h2>Atölye: 3 mini çalışma + ödev</h2>
+</div>
+<div class="grid2">
+<div class="card">
+<div class="cardTitle">Mini Çalışma #1 — Trend Haritası (30–40 dk)</div>
+<ol>
+<li>Bir mikro trend seçin (toplulukça 5–6 aday).</li>
+<li>3 kaynakla kanıtlayın: kültür + veri + runway/street.</li>
+<li>1 hero ürün + 2 destek ürün önerin.</li>
+<li>Riskleri yazın (stok/fit/üretim/marka).</li>
+</ol>
+<div class="miniNote">Çıktı: 1 sayfalık “trend kartı”.</div>
+</div>
+<div class="card">
+<div class="cardTitle">Mini Çalışma #2 — Funnel + İçerik Planı (40–50 dk)</div>
+<ol>
+<li>Seçtiğiniz trendi bir marka senaryosuna bağlayın.</li>
+<li>Huni aşamalarına 1’er içerik formatı yerleştirin.</li>
+<li>Her aşama için 1 KPI seçin.</li>
+<li>Web için 3 trust signal yazın.</li>
+</ol>
+<div class="miniNote">Çıktı: 1 tablo (huni → içerik → KPI).</div>
+</div>
+</div>
+<div class="card">
+<div class="cardTitle">Mini Çalışma #3 — Portfolyo İskeleti (30–35 dk)</div>
+<ol>
+<li>10 slayt iskeleti ile kendi projenizin başlıklarını yazın.</li>
+<li>“Kanıt” koyacağınız 3 nokta belirleyin (trend/fit/üretim/UX).</li>
+<li>Final slaytta “ne öğrendim?” için 3 madde çıkarın.</li>
+</ol>
+</div>
+<div class="card">
+<div class="cardTitle">ÖDEV (HAFTA 7'YE)</div>
+<ul>
+<li>1 trend kartını tamamlayın (3 kaynak + ürün karşılığı).</li>
+<li>Runway analiz şablonu ile 1 koleksiyon çözümleyin (en az 10 look).</li>
+<li>10 slayt portfolyo iskeletini görselleştirin (Figma/Canva).</li>
+</ul>
+</div>
+</section><section class="section" id="refs">
+<div class="secHead">
+<span class="secNo">09</span>
+<h2>Kaynaklar &amp; Araçlar</h2>
+</div>
+<div class="grid2">
+<div class="card">
+<div class="cardTitle">Araçlar</div>
+<ul>
+<li>Google Trends (arama niyeti / karşılaştırma / sezonsallık)</li>
+<li>TikTok Creative Center (Trend Intelligence)</li>
+<li>Instagram Explore + rakip/benchmark listesi</li>
+<li>Basit KPI takibi (Sheet)</li>
+</ul>
+</div>
+<div class="card">
+<div class="cardTitle">Okuma (Kısa Liste)</div>
+<ul>
+<li>Trendlerin nasıl oluştuğuna dair sektör yazıları</li>
+<li>Checkout / ürün sayfası usability araştırmaları</li>
+<li>Omnichannel ve müşteri yolculuğu kaynakları</li>
+</ul>
+<div class="miniNote">Bu sayfanın altında, chat ekranında tıklanabilir kaynakları ayrıca verdim.</div>
+</div>
+</div>
+</section></div>
+</main>
+<aside>
+<div class="panel">
+<h4>Tasarım ayarları</h4>
+<div class="row">
+<label>Theme</label>
+<select id="themeSelect">
+<option value="light">Light</option>
+<option value="dark">Dark</option>
+</select>
+</div>
+<div class="row">
+<label>Background</label>
+<input id="bgColor" type="color"/>
+</div>
+<div class="row">
+<label>Text</label>
+<input id="fgColor" type="color"/>
+</div>
+<div class="row">
+<label>Accent</label>
+<input id="accentColor" type="color"/>
+</div>
+<div class="row">
+<label>Accent 2</label>
+<input id="accent2Color" type="color"/>
+</div>
+<div class="row">
+<label>Font size</label>
+<input id="fontSize" max="22" min="15" step="1" type="range"/>
+</div>
+<div class="row">
+<label>Line height</label>
+<input id="lineHeight" max="1.85" min="1.35" step="0.05" type="range"/>
+</div>
+<div class="row">
+<label>Heading font</label>
+<select id="headingFont">
+<option selected="" value="serif">Serif</option>
+<option value="sans">Sans</option>
+<option value="mono">Mono</option>
+</select>
+</div>
+<div class="row">
+<label>Heading weight</label>
+<input id="headingWeight" max="900" min="300" step="50" type="range" value="800"/>
+</div>
+<div class="row">
+<label>Body weight</label>
+<input id="bodyWeight" max="650" min="300" step="25" type="range" value="450"/>
+</div>
+<div class="row">
+<label>Page padding</label>
+<input id="pagePad" max="44" min="10" step="1" type="range" value="22"/>
+</div>
+<div class="row">
+<label>Max width</label>
+<input id="maxWidth" max="1180" min="860" step="20" type="range"/>
+</div>
+<div class="row">
+<label>Section padding</label>
+<input id="pad" max="80" min="10" step="1" type="range" value="18"/>
+</div>
+<div class="row">
+<label>Grid gap</label>
+<input id="gap" max="26" min="12" step="1" type="range"/>
+</div>
+<div class="actions" style="margin-top:12px;">
+<div class="btn" id="btnReset">Reset</div>
+<div class="btn" id="btnPresenter">Toggle Presenter</div>
+</div>
+<div class="small">Ayarlar cihazında kaydedilir (localStorage).</div>
+</div>
+<div class="panel">
+<h4>6 saatlik akış (özet)</h4>
+<table class="table">
+<tbody>
+<tr><td><strong>10:00–10:15</strong></td><td>Açılış + çıktı</td></tr>
+<tr><td><strong>10:15–11:10</strong></td><td>Marka mimarisi + örnekler</td></tr>
+<tr><td><strong>11:10–11:30</strong></td><td>Uygulama 1</td></tr>
+<tr><td><strong>11:30–12:10</strong></td><td>Konumlandırma + örnekler</td></tr>
+<tr><td><strong>12:10–12:35</strong></td><td>Uygulama 2</td></tr>
+<tr><td><strong>12:35–13:00</strong></td><td>Story + tone mini giriş</td></tr>
+<tr><td><strong>14:00–14:20</strong></td><td>Story + tone uygulama</td></tr>
+<tr><td><strong>14:20–14:45</strong></td><td>Touchpoints + uygulama</td></tr>
+<tr><td><strong>14:45–15:10</strong></td><td>Mikro kampanya + uygulama</td></tr>
+<tr><td><strong>15:10–15:25</strong></td><td>Buyer vs consumer</td></tr>
+<tr><td><strong>15:25–15:45</strong></td><td>Pricing + GTM</td></tr>
+<tr><td><strong>15:45–16:00</strong></td><td>Export + teslim kontrol</td></tr>
+</tbody>
+</table>
+<div class="small">Not: Bu özet, dersteki gerçek ritme göre esneyebilir.</div>
+</div>
+<div class="panel">
+<h4>Klavye</h4>
+<div class="small">
+<div><span class="kbd">←</span> prev section</div>
+<div><span class="kbd">→</span> next section</div>
+<div><span class="kbd">T</span> theme toggle</div>
+<div><span class="kbd">P</span> presenter toggle</div>
+</div>
+</div>
+</aside>
+</div>
+<div class="footerbar">
+<div class="btn" id="btnTop">↑ Top</div>
+<div aria-label="progress" class="progress"><div id="progFill"></div></div>
+<div class="hint" id="hint">Section: 00</div>
+</div>
+<script>
+    const root = document.documentElement;
+    const body = document.body;
+    const toc = document.getElementById('toc');
+    const tocLinks = Array.from(toc.querySelectorAll('a'));
+    const sections = tocLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+
+    // --- Settings persistence
+    const defaults = {
+      theme: 'light',
+      bg: '#f6f6f6',
+      fg: '#111111',
+      accent: '#00ff66',
+      accent2: '#ff2bd6',
+      fs: 18,
+      lh: 1.55,
+    headingFont: 'serif',
+    headingWeight: 800,
+    bodyWeight: 450,
+    pagePad: 22,
+      maxw: 1040,
+      pad: 18,
+      gap: 16,
+      presenter: 0,
+    };
+
+    function loadState(){
+      try{
+        const s = JSON.parse(localStorage.getItem('ms2_week6_state') || 'null');
+        return Object.assign({}, defaults, s || {});
+      }catch(e){
+        return Object.assign({}, defaults);
+      }
+    }
+    function saveState(st){
+      localStorage.setItem('ms2_week6_state', JSON.stringify(st));
+    }
+    let state = loadState();
+
+    function applyState(){
+      body.setAttribute('data-theme', state.theme);
+      if(state.presenter){ body.setAttribute('data-presenter','1'); }
+      else{ body.removeAttribute('data-presenter'); }
+
+      root.style.setProperty('--bg', state.bg);
+      root.style.setProperty('--fg', state.fg);
+      root.style.setProperty('--accent', state.accent);
+      root.style.setProperty('--accent2', state.accent2);
+      root.style.setProperty('--fs', state.fs + 'px');
+      root.style.setProperty('--lh', state.lh);
+  const fontMap = { serif: 'var(--serif)', sans: 'var(--sans)', mono: 'var(--mono)' };
+  root.style.setProperty('--heading-font', fontMap[state.headingFont] || 'var(--serif)');
+  root.style.setProperty('--heading-weight', String(state.headingWeight ?? 800));
+  root.style.setProperty('--body-weight', String(state.bodyWeight ?? 450));
+  root.style.setProperty('--page-pad', (state.pagePad ?? 22) + 'px');
+      root.style.setProperty('--maxw', state.maxw + 'px');
+      root.style.setProperty('--pad', state.pad + 'px');
+      root.style.setProperty('--gap', state.gap + 'px');
+    }
+
+    // --- Bind UI
+    const themeSelect = document.getElementById('themeSelect');
+    const bgColor = document.getElementById('bgColor');
+    const fgColor = document.getElementById('fgColor');
+    const accentColor = document.getElementById('accentColor');
+    const accent2Color = document.getElementById('accent2Color');
+    const fontSize = document.getElementById('fontSize');
+    const lineHeight = document.getElementById('lineHeight');
+    const headingFont = document.getElementById('headingFont');
+    const headingWeight = document.getElementById('headingWeight');
+    const bodyWeight = document.getElementById('bodyWeight');
+    const pagePad = document.getElementById('pagePad');
+    const maxWidth = document.getElementById('maxWidth');
+    const pad = document.getElementById('pad');
+    const gap = document.getElementById('gap');
+
+    function syncControls(){
+      themeSelect.value = state.theme;
+      bgColor.value = state.bg;
+      fgColor.value = state.fg;
+      accentColor.value = state.accent;
+      accent2Color.value = state.accent2;
+      fontSize.value = state.fs;
+      lineHeight.value = state.lh;
+      if (headingFont) headingFont.value = state.headingFont ?? 'serif';
+      if (headingWeight) headingWeight.value = state.headingWeight ?? 800;
+      if (bodyWeight) bodyWeight.value = state.bodyWeight ?? 450;
+      if (pagePad) pagePad.value = state.pagePad ?? 22;
+      maxWidth.value = state.maxw;
+      pad.value = state.pad;
+      gap.value = state.gap;
+    }
+
+    themeSelect.addEventListener('change', e => { state.theme = e.target.value; applyState(); saveState(state); });
+    bgColor.addEventListener('input', e => { state.bg = e.target.value; applyState(); saveState(state); });
+    fgColor.addEventListener('input', e => { state.fg = e.target.value; applyState(); saveState(state); });
+    accentColor.addEventListener('input', e => { state.accent = e.target.value; applyState(); saveState(state); });
+    accent2Color.addEventListener('input', e => { state.accent2 = e.target.value; applyState(); saveState(state); });
+    fontSize.addEventListener('input', e => { state.fs = Number(e.target.value); applyState(); saveState(state); });
+    lineHeight.addEventListener('input', e => { state.lh = Number(e.target.value); applyState(); saveState(state); });
+    if (headingFont) headingFont.addEventListener('change', e => { state.headingFont = e.target.value; applyState(); saveState(state); });
+    if (headingWeight) headingWeight.addEventListener('input', e => { state.headingWeight = Number(e.target.value); applyState(); saveState(state); });
+    if (bodyWeight) bodyWeight.addEventListener('input', e => { state.bodyWeight = Number(e.target.value); applyState(); saveState(state); });
+    if (pagePad) pagePad.addEventListener('input', e => { state.pagePad = Number(e.target.value); applyState(); saveState(state); });
+    maxWidth.addEventListener('input', e => { state.maxw = Number(e.target.value); applyState(); saveState(state); });
+    pad.addEventListener('input', e => { state.pad = Number(e.target.value); applyState(); saveState(state); });
+    gap.addEventListener('input', e => { state.gap = Number(e.target.value); applyState(); saveState(state); });
+
+    document.getElementById('btnReset').addEventListener('click', () => {
+      state = Object.assign({}, defaults);
+      applyState(); syncControls(); saveState(state);
+    });
+
+    document.getElementById('btnPresenter').addEventListener('click', () => {
+      state.presenter = state.presenter ? 0 : 1;
+      applyState(); saveState(state);
+    });
+
+    // Theme quick toggle
+    function toggleTheme(){
+      state.theme = (state.theme === 'dark') ? 'light' : 'dark';
+      // Optionally adjust defaults for bg/fg when switching
+      if(state.theme === 'dark'){
+        state.bg = '#0b0b0c'; state.fg = '#f2f2f2';
+      }else{
+        state.bg = '#f6f6f6'; state.fg = '#111111';
+      }
+      applyState(); syncControls(); saveState(state);
+    }
+
+    // --- Navigation helpers
+    function currentSectionIndex(){
+      const y = window.scrollY + 140;
+      let idx = 0;
+      for(let i=0;i<sections.length;i++){
+        const top = sections[i].offsetTop;
+        if(top <= y) idx = i;
+      }
+      return idx;
+    }
+
+    function scrollToSection(i){
+      if(i < 0) i = 0;
+      if(i >= sections.length) i = sections.length - 1;
+      sections[i].scrollIntoView({behavior:'smooth', block:'start'});
+    }
+
+    document.getElementById('btnPrev').addEventListener('click', () => scrollToSection(currentSectionIndex()-1));
+    document.getElementById('btnNext').addEventListener('click', () => scrollToSection(currentSectionIndex()+1));
+    document.getElementById('btnTop').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+    // Keyboard
+    window.addEventListener('keydown', (e) => {
+      if(e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA')) return;
+      if(e.key === 'ArrowLeft') scrollToSection(currentSectionIndex()-1);
+      if(e.key === 'ArrowRight') scrollToSection(currentSectionIndex()+1);
+      if(e.key.toLowerCase() === 't') toggleTheme();
+      if(e.key.toLowerCase() === 'p'){
+        state.presenter = state.presenter ? 0 : 1;
+        applyState(); saveState(state);
+      }
+    });
+
+    // Active toc + progress
+    const progFill = document.getElementById('progFill');
+    const hint = document.getElementById('hint');
+
+    function updateUI(){
+      const idx = currentSectionIndex();
+      tocLinks.forEach((a,i)=> a.classList.toggle('active', i === idx));
+
+      // Progress by scroll
+      const docH = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docH <= 0 ? 0 : Math.max(0, Math.min(1, window.scrollY / docH));
+      progFill.style.width = (pct*100).toFixed(1) + '%';
+      hint.textContent = 'Section: ' + String(idx).padStart(2,'0');
+    }
+    window.addEventListener('scroll', updateUI, {passive:true});
+
+    // Initialize
+    applyState(); syncControls(); updateUI();
+  </script>
+</body>
+</html>
